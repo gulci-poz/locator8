@@ -1,0 +1,22 @@
+{
+  "name": "locator8",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "gulci-poz <sebastian.gulczynski.poznan@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

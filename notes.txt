@@ -1,0 +1,33 @@
+# aplikacja w heroku
+# konieczne dodanie sekcji engines w pliku pakackage.json
+# konieczne dodanie pliku Procfile
+
+# potrzebujemy heroku toolbelt
+# nie jest potrzebna konsola github
+
+# logowanie do heroku
+heroku login
+# lub
+heroku
+
+# lokalny serwer web do testów na porcie 5000
+heroku local
+
+# wylistowanie wszystkich aplikacji
+heroku apps --all
+
+# utworzenie aplikacji i repozytorium heroku - losowa nazwa i repo na heroku
+heroku create
+
+# utworzenie aplikacji z podaniem parametrów
+# domyślnie w przestrzeni apps
+heroku [apps:]create locator8 --buldpack https://github.com/gulci-poz/locator8 --region eu
+
+# od razu będziemy mieli deploy
+git push origin master
+
+# konfiguracja jednego dyno z zasobami (free)
+heroku ps:scale web=1
+
+# otwarcie aplikacji w domyślnej przeglądarce
+heroku open
