@@ -1,4 +1,4 @@
-# aplikacja w heroku
+﻿# aplikacja w heroku
 # konieczne dodanie sekcji engines w pliku pakackage.json
 # konieczne dodanie pliku Procfile
 
@@ -21,7 +21,7 @@ heroku create
 
 # utworzenie aplikacji z podaniem parametrów
 # domyślnie w przestrzeni apps
-heroku [apps:]create locator8 --buldpack https://github.com/gulci-poz/locator8 --region eu
+heroku [apps:]create locator8 --buildpack https://github.com/gulci-poz/locator8 --region eu
 
 # od razu będziemy mieli deploy
 git push origin master
