@@ -16,15 +16,22 @@ heroku local
 # wylistowanie wszystkich aplikacji
 heroku apps --all
 
-# utworzenie aplikacji i repozytorium heroku - losowa nazwa i repo na heroku
+# utworzenie aplikacji i repozytorium heroku
 heroku create
 
 # utworzenie aplikacji z podaniem parametrów
 # domyślnie w przestrzeni apps
-heroku [apps:]create locator8 --buildpack https://github.com/gulci-poz/locator8 --region eu
+heroku [apps:]create locator8 --region eu
 
+# oprócz remote repo na git musimy też mieć remote repo na heroku
+heroku git:remote -a <heroku-repo-name>
+
+# oprócz wysyłania do naszego repo robimy to również do repo heroku
 # od razu będziemy mieli deploy
-git push origin master
+git push heroku master
+
+# wylistowanie zdalnych repo
+git remote -v
 
 # konfiguracja jednego dyno z zasobami (free)
 heroku ps:scale web=1
