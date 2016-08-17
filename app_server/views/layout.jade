@@ -5,7 +5,12 @@ html
     title= title
     link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/amelia.bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='/') Locator8
     block content
     script(src='/lib/jquery/dist/jquery.min.js')
     script(src='/lib/bootstrap/dist/js/bootstrap.min.js')
