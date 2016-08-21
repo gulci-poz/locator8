@@ -2,9 +2,10 @@ module.exports.homeList = function (req, res) {
     res.render('locations-list', {
         title: 'locator8 - find a place to work with wifi',
         pageHeader: {
-            title: "locator8",
-            strapline: "Find places to work with wifi near you!"
+            title: 'locator8',
+            strapline: 'Find places to work with wifi near you!'
         },
+        sidebar: 'Looking for wifi and a seat? locator8 helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let locator help you find the place you\'re looking for.',
         locations: [{
             name: 'Starcups',
             adress: '125 High Street, Reading, RG6 1PS',
