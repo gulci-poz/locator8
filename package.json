@@ -10,15 +10,19 @@
     "node": "~6.3.1",
     "npm": "~3.10.3"
   },
-  "cacheDirectories": ["node_modules", "public/lib"],
+  "cacheDirectories": [
+    "node_modules",
+    "public/lib"
+  ],
   "dependencies": {
     "body-parser": "~1.15.1",
+    "bower": "~1.7.9",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "~4.13.4",
     "jade": "~1.11.0",
+    "mongoose": "^4.5.9",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0",
-    "bower": "~1.7.9"
+    "serve-favicon": "~2.3.0"
   }
 }
