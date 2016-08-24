@@ -39,3 +39,54 @@ heroku ps:scale web=1
 
 # otwarcie aplikacji w domyślnej przeglądarce
 heroku open
+
+mongo
+show dbs
+use local
+use locator8 (również do tworzenia bazy; kolekcja powstanie po pierwszym zapisie danych do bazy)
+show collections (nie pokazuje mi kolekcji system.indexes)
+db.startup_log.find() (wyświetla wszystkie dokumenty w kolekcji)
+każdy dokument ma relację 1:1 z instancją modelu
+db.locations.find().pretty()
+
+db.locations.save({
+name: 'Starcups',
+address: '125 High Street, Reading, RG6 1PS',
+rating: 3,
+facilities: ['Hot drinks', 'Food', 'Premium wifi'],
+coords: [-0.9690884, 51.455041],
+openingTimes: [{
+days: 'Monday - Friday',
+opening: '7:00am',
+closing: '7:00pm',
+closed: false
+}, {
+days: 'Saturday',
+opening: '8:00am',
+closing: '5:00pm',
+closed: false
+}, {
+days: 'Sunday',
+closed: true
+}]
+})
+
+# ścieżka w modelu może jeszcze nie istnieć
+
+db.locations.update({
+name: 'Starcups'
+}, {
+$push: {
+reviews: {
+author: 'Simon Holmes',
+id: ObjectId(),
+rating: 5,
+timestamp: new Date("Jul 16, 2013"),
+reviewText: "What a great place. I can't say enough good things about it."
+}
+}
+})
+
+mongodb://<dbuser>:<dbpassword>@ds015636.mlab.com:15636/locator8
+heroku config:set --app APP MONGOLAB_URI=your_db_uri
+jeśli nie mamy gita zdalnego na heroku, to musimy podać nazwę aplikacji
