@@ -89,4 +89,13 @@ reviewText: "What a great place. I can't say enough good things about it."
 
 mongodb://<dbuser>:<dbpassword>@ds015636.mlab.com:15636/locator8
 heroku config:set --app APP MONGOLAB_URI=your_db_uri
-jeśli nie mamy gita zdalnego na heroku, to musimy podać nazwę aplikacji
+jeśli nie mamy w danym momencie skonfigurowanego gita zdalnego heroku, to musimy podać nazwę aplikacji
+heroku config:get MONGOLAB_URI
+
+do używania pluginów trzeba zarejestrować kartę płatniczą
+heroku addons:add mongolab
+heroku addons:open mongolab
+
+dump bazy danych
+mongodump -h localhost:27017 -d locator8 -o ~/mongo_dump
+(lub używamy w docelowej lokalizacji mongodump i zrzucamy wszystko)
