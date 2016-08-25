@@ -25,7 +25,6 @@ heroku [apps:]create locator8 --region eu
 
 # oprócz remote repo na git musimy też mieć remote repo na heroku
 # domyślnie to repo jest dodane do danych .git
-heroku git:remote -a <heroku-repo-name>
 
 # oprócz wysyłania do naszego repo robimy to również do repo heroku
 # od razu będziemy mieli deploy
