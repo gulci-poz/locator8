@@ -87,6 +87,8 @@ reviewText: "What a great place. I can't say enough good things about it."
 }
 })
 
+w ubuntu trzeba dodać ścieżkę /usr/local/heroku/bin do PATH w ~/.bashrc
+
 mongodb://<dbuser>:<dbpassword>@ds015636.mlab.com:15636/locator8
 heroku config:set --app APP MONGOLAB_URI=your_db_uri
 jeśli nie mamy w danym momencie skonfigurowanego gita zdalnego heroku, to musimy podać nazwę aplikacji
@@ -99,3 +101,29 @@ heroku addons:open mongolab
 dump bazy danych
 mongodump -h localhost:27017 -d locator8 -o ~/mongo_dump
 (lub używamy w docelowej lokalizacji mongodump i zrzucamy wszystko)
+
+ścieżka na końcu, bez parametru
+mongorestore -h ds015636.mlab.com:15636 -d locator8 -u <user> -p <password> /home/gulci/mongo_dump/locator8
+
+w dumpie bazy, w pliku *.metadata.json trzeba zmienić wersję indeksu 2dsphere na 2
+jeśli mamy wcześniejszą wersję kolekcji, to może być błąd indeksów, możemy usunąć kolekcję
+db.locations.drop()
+
+mongo ds015636.mlab.com:15636/locator8 -u <user> -p <password>
+
+heroku config:set NODE_ENV=production
+heroku config:get NODE_ENV
+
+do komendy uruchomienia aplikacji można doczepić definicję zmiennych środowiskowych
+NODE_ENV=production nodemon
+nie ustawiamy zmiennej NODE_ENV wewnątrz aplikacji, tylko ją odczytujemy
+lokalnie domyślnie jest undefined
+
+zamiast process.env.NODE_ENV można ustawiać bezpośrednio przez express
+app.get('env')
+oprócz 'production' mamy też wartość 'development'
+
+gdy nie da się odczytać zawartośći zmiennej MONGOLAB_URI z heroku
+NODE_ENV=production MONGOLAB_URI=mongodb://<dbuser>:<dbpassword>@ds015636.mlab.com:15636/locator8 nodemon
+
+heroku logs
