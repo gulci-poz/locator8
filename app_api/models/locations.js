@@ -46,7 +46,7 @@ var locationSchema = new mongoose.Schema({
         index: '2dsphere'
     },
     openingTimes: [openingTimeSchema],
-    reviews: reviewSchema
+    reviews: [reviewSchema]
 });
 
 mongoose.model('Location', locationSchema);
